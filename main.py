@@ -52,7 +52,9 @@ def processcommand(c):
     
 if __name__ == "__main__": #generally this condition holds true only if the code is being executed in the same file.
     #function speak() is called here 
-    speak(".....rank Initializing Astra")
+    speak(".....rank Initializing Astra") # Here I have given some extra space and added a word "Rank" which makes no sense because here the pyttsx3
+    # library cuts off the initial letters of the word which we want to be pronounced. So when I applied this trick then I got the result as I wanted
+    # similarly wherever it is like this, I have done for getting accurate results.
     try:
         while True:
     
