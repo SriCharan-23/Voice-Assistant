@@ -1,6 +1,13 @@
-This is a project where you can give voice commands and according to your command it will work.
-Before using this please ensure to install "speech_recognition" and "setuptools" packages so that you can continue with your project.
-Also u can create a python file for songs and store required songs and news and also you can use API keys to make it more effective and interactive.
+⭐ Voice Assistant (ASTRA)  🎤
+------------------------------------
 
-Note:- One important note is that you should do this project in a virtual environment so that there will be no chance of collisions to occur, because if u install certain modules directly in
-       the actual environment of the system there may be chances of collisions to occur. So I suggest to make use of this particular project in virtual environment only.
+📌 OBJECTIVE
+-------------------------
+This project is a voice-controlled system that performs tasks based on user commands. It allows you to interact with your program using speech, making it more intuitive and user-friendly.
+
+Before getting started, ensure that you have installed the required Python packages, such as speech_recognition and setuptools, to enable proper functionality.
+
+To enhance the project, you can create a separate Python file to manage songs, news, or other custom features. Additionally, integrating API keys can make the system more dynamic, interactive, and capable of fetching real-time information.
+
+Important Note:
+It is highly recommended to develop and run this project within a virtual environment. This helps prevent dependency conflicts and avoids potential issues that may arise from installing packages directly into your system’s global environment.
