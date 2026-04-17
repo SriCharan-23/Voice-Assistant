@@ -9,5 +9,5 @@ Before getting started, ensure that you have installed the required Python packa
 
 To enhance the project, you can create a separate Python file to manage songs, news, or other custom features. Additionally, integrating API keys can make the system more dynamic, interactive, and capable of fetching real-time information.
 
-Important Note:
+__Important Note:__
 It is highly recommended to develop and run this project within a virtual environment. This helps prevent dependency conflicts and avoids potential issues that may arise from installing packages directly into your system’s global environment.
