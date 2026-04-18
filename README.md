@@ -1,4 +1,4 @@
-⭐ Voice Assistant (ASTRA)  🎤
+⭐ Voice Assistant (ASTRA)  🎤🗣
 ------------------------------------
 
 📌 OBJECTIVE
