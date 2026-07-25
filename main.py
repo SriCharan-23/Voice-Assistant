@@ -8,10 +8,18 @@ Note: It is still has a limited access in future it may be enhanced!!
 
 # These are the modules which are required by us to go on with this project
 
-import speech_recognition as sr #as keyword makes us use 'sr' insted of writing whole word 'speech recognition'
+import speech_recognition as sr #as keyword makes us use 'sr' instead of writing whole word 'speech recognition'
 import webbrowser
 import pyttsx3    #It is a module used to convert text to speech
 import musiclibrary #It is a user defined module
+import os
+from dotenv import load_dotenv
+from google import genai
+import re
+
+load_dotenv()
+GEMINI_API_KEY = os.getenv("GEMINI_API_KEY")
+client = genai.Client(api_key=GEMINI_API_KEY)
 
 #recognizer class 
 recognizer =  sr.Recognizer() 
@@ -21,6 +29,21 @@ def speak(text):
     engine = pyttsx3.init()
     engine.say(text)
     engine.runAndWait()
+
+def ask_gemini(question):
+    response = client.models.generate_content(
+        model="gemini-flash-latest",
+        contents=question
+    )
+    return response.text
+
+def clean_text(text):
+    text = re.sub(r'#+\s*', '', text)        # remove ### headers
+    text = re.sub(r'\*\*(.*?)\*\*', r'\1', text)  # remove **bold**
+    text = re.sub(r'\*(.*?)\*', r'\1', text)      # remove *italic*
+    text = re.sub(r'`(.*?)`', r'\1', text)        # remove `code`
+    text = re.sub(r'-\s+', '', text)              # remove leading dashes/bullets
+    return text
 # This function describes about the processes
 def processcommand(c):
     #opens google
@@ -43,22 +66,25 @@ def processcommand(c):
         song = c.lower().split(" ")[1]
         # c.lower().split(" ")[1] -> here we will understand it line by line
         # c.lower()-> even if the key is in capital letters it will convert it to small letters
-        #split(" ")-> split function splits 'play' and "song" by a space and stores them as ['play' "song"]
+        #split(" ")-> split function splits 'play' and "song" by a space and stores them as ["play" "song"]
         #[1] -> as before song is stored as ['play' "song"] the index of play is 0 and song is 1, when we keep [1]
-        # it stores the 1 index elemnt in the song i.e., the song which we need!!
+        # it stores the 1 index element in the song i.e., the song which we need!!
         link = musiclibrary.Music[song]
         webbrowser.open(link)
 
-    
+    else:
+        answer = ask_gemini(c)
+        answer = clean_text(answer)
+        print("Astra:", answer)
+        speak(answer)
+
 if __name__ == "__main__": #generally this condition holds true only if the code is being executed in the same file.
     #function speak() is called here 
-    speak(".....rank Initializing Astra") # Here I have given some extra space and added a word "Rank" which makes no sense because here the pyttsx3
-    # library cuts off the initial letters of the word which we want to be pronounced. So when I applied this trick then I got the result as I wanted
-    # similarly wherever it is like this, I have done for getting accurate results.
+    speak(".....rank Initializing Astra")
     try:
         while True:
     
-            #Recognize wakeup word "Astra" and wakeup while listenig to the correct word
+            #Recognize wakeup word "Astra" and wakeup while listening to the correct word
             r= sr.Recognizer()
             with sr.Microphone() as source:
                 print("Listening....")
