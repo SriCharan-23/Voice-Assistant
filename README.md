@@ -101,7 +101,7 @@ Music = {
 
 ## Roadmap / Future Enhancements
 
-📌 More built-in commands (weather, reminders, system controls)
+📌 More built-in commands (weather, reminders, system controls)          
 📌 Conversation memory so Gemini can handle follow-up questions
 
 ## Notes
