@@ -1,4 +1,4 @@
-# Astra — Voice Assistant 🎤
+# ⭐Astra — Voice Assistant 🎤
 
 Astra is a Python-based voice assistant that listens for a wake word, executes simple commands (opening websites, playing music), and falls back to Google's Gemini AI for open-ended questions it doesn't have a built-in command for.
 
