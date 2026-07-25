@@ -3,3 +3,5 @@ setuptools>=65.0.0
 pyaudio==0.2.14
 pyttsx3==2.90
 requests>=2.31.0
+google-generativeai
+python_dotenv
