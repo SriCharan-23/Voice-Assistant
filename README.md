@@ -36,7 +36,7 @@ Voice Assistant/
 ### 1. Clone or download the project
 
 ```
-git clone <your-repo-url>
+git clone https://github.com/SriCharan-23/Voice-Assistant
 cd "Voice Assistant"
 ```
 
